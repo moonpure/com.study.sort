@@ -6,15 +6,15 @@ import java.util.Random;
  * 快速排序
  */
 public class QuickSort {
-    public void Sort(int list[], int l, int r) {
+    public void sort(int list[], int l, int r) {
         if (l < r) {
-            int mid = Partition(list, l, r);
-            Sort(list, l, mid - 1);
-            Sort(list, mid + 1, r);
+            int mid = partition(list, l, r);
+            sort(list, l, mid - 1);
+            sort(list, mid + 1, r);
         }
     }
 
-    private int Partition(int list[], int l, int r) {
+    private int partition(int list[], int l, int r) {
         int x = list[r];
         int i = l - 1;
         for (int j = l; j <= r - 1; j++) {
@@ -33,11 +33,11 @@ public class QuickSort {
 
 
     //单路快速排序，无法实现对数据全为一样的数组进行快排
-    public <E extends Comparable<E>> void SortSingle(E arr[], int l, int r, Random random) {
+    public <E extends Comparable<E>> void sortSingle(E arr[], int l, int r, Random random) {
         if (l >= r) return;
         int flagIndex = partitionG(arr, l, r, random); //flagIndex就是左边的都小于它，右边的都大于它
-        SortSingle(arr, l, flagIndex - 1, random);//此处传参为index-1因为不对标志元素进行排序
-        SortSingle(arr, flagIndex + 1, r, random);
+        sortSingle(arr, l, flagIndex - 1, random);//此处传参为index-1因为不对标志元素进行排序
+        sortSingle(arr, flagIndex + 1, r, random);
     }
 
     //l+1~j是小于的区间 j~i-1是大于的，j是一个分界点i~r是还未处理的元素
@@ -104,7 +104,7 @@ public class QuickSort {
      * 三路快排的核心用法就是解决有特定类型情况的排序问题，如LeetCode的75题
      * 优化的核心就是防止相等的元素进入大于或小于的区间
      * */
-    public   <E extends Comparable<E>> void Sort3Ways(E arr[], int l, int r, Random random) {
+    public   <E extends Comparable<E>> void sort3Ways(E arr[], int l, int r, Random random) {
         if (l >= r) return;
 
         int index = random.nextInt(r - l + 1) + l;
@@ -129,7 +129,7 @@ public class QuickSort {
         //将lt放到等于的那个区间里，此时[l,lt-1]小于的区间[lt,gt-1]等于的区间[gt,r]大于的区间
         swap(arr, l, lt);
         //核心改变处，只处理应该递归的那部分元素，而不是将全部元素都进去递归
-        Sort3Ways(arr, l, lt - 1, random);
-        Sort3Ways(arr, gt, r, random);
+        sort3Ways(arr, l, lt - 1, random);
+        sort3Ways(arr, gt, r, random);
     }
 }

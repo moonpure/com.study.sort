@@ -14,7 +14,7 @@ class QuickSortTest {
         QuickSort bs=new QuickSort();
         Integer[] arrays =new Integer[]{15,63,97,12,235,66};
         Random random = new Random();
-        bs.Sort3Ways(arrays,0,arrays.length-1,random);
+        bs.sort3Ways(arrays,0,arrays.length-1,random);
         System.out.println(Arrays.toString(arrays));
     }
 }

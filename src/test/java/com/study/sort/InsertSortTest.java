@@ -6,13 +6,13 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BubbleSortTest {
+class InsertSortTest {
 
     @Test
     void sort() {
-        BubbleSort bs=new BubbleSort();
-        Integer[] arrays =new Integer[]{15,63,97,12,235,66};
-        bs.sortG(arrays);
+        InsertSort bs=new InsertSort();
+        int[] arrays =new int[]{15,63,97,12,235,66};
+        bs.sort(arrays);
         System.out.println(Arrays.toString(arrays));
     }
 }
