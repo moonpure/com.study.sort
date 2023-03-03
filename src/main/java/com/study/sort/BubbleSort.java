@@ -26,7 +26,7 @@ public class BubbleSort {
      * @param a
      * @return
      */
-    private void bubbleSort2(int[] a) {
+    public void bubbleSort2(int[] a) {
         int j;
         int n = a.length;
         boolean flag = true;// 发生了交换就为true, 没发生就为false，第一次判断时必须标志位true。
@@ -53,8 +53,7 @@ public class BubbleSort {
      * @return
      *
      */
-    public static int[] bubbleSort3(int[] a) {
-        System.out.println("bubbleSort3的排序结果：");
+    public  void bubbleSort3(int[] a) {
         int j;
         int n = a.length;
         boolean flag = true;// 发生了交换就为true, 没发生就为false，第一次判断时必须标志位true。
@@ -73,7 +72,6 @@ public class BubbleSort {
             }
             n--;// 减小一次排序的尾边界
         } // end while
-        return a;
     }// end
     /**
      * 使用Comparable接口的泛型冒泡排序
